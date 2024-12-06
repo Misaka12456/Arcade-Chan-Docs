@@ -9,6 +9,14 @@ Caution: We will use placeholder `%varName%` to replace the corresponding value 
 
 Updated on: 1.2.0 (5.17.2022)
 
+##### New Location Support in 2.4.5 (4.1.2023)
+Now you can use 3 locations to show the text: `top`, `center` and `bottom`.  
+Their corresponding id is `topText`, `text` and `bottomText`.  
+For exmaple:  
+```cs
+special(%time%, topText, in, %textId%);  
+```
+
 This statement can dynamically show/hide tutorial text on the top-center of the window.
 
 Usage:
@@ -163,6 +171,9 @@ special(%time%, uiedit, <type>, <value>);
 
 * `1`: Difficulty Rating ("rating10"(means "10")/"rating9plus"(means "9+"))
 * `2`: Full Difficulty String ("Beyond_rating12"(means "Beyond 12")/"Future_rating9plus"(means "Future 9+"))
+* `3`: Difficulty Indicator Sprite ("level0"/"level1"/"level2"/"level3", corresponding to Past/Present/Future/Beyond)
+* `4`: Song Title (The id of the title text in ``spStrTable.json`` (same as the file in **Section 1**.)) [Added in v2.5.0]
+* `5`: Song Artist (The id of the artist text in ``spStrTable.json`` (same as the file in **Section 1**.)) [Added in v2.5.0]
 
 ``value``(string): The value of the UI component.
 
@@ -208,5 +219,5 @@ special(%time%, uiedit, 1, R); // This is not start with a number, so we don't n
 
 ---
 
-Last Update: Sunday, December 25, 2022  
-Corresponding Arcade-Chan Version: 2.1.0 LTS (Updated on 12.25.2022)
+Last Update: Friday, April 7th, 2023
+Corresponding Arcade-Chan Version: 2.5.0 LTS (Updated on 4.7.2023(Pending))
