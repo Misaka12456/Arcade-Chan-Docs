@@ -6,19 +6,60 @@ Arcade-Chan用户脚本(UserScript) 开发手册
 
 ``用户脚本``采用Lua语言，由MoonSharp提供基础支持。
 
-请选择以下类型之一以查看详细手册：
-| 类型名称 | 类型 | 描述 |
-|:---|:---|:---|
-|[``ScriptArc``](Data/Arcade.Scripting.Apis/Aff/ScriptArc.md)|类|表示一个用于Lua脚本的脚本音符Arc。|
-|[``ScriptArcTap``](Data/Arcade.Scripting.Apis/Aff/ScriptArcTap.md)|类|表示一个用于Lua脚本的脚本音符ArcTap。该音符无法单独存在，其必须属于且仅属于一个音轨状态的Arc音符。|
-|[``ScriptCamera``](Data/Arcade.Scripting.Apis/Aff/ScriptCamera.md)|类|表示一个用于Lua脚本的Camera(相机动画)脚本事件。|
-|[``ScriptChart``](Data/Arcade.Scripting.Apis/Aff/ScriptChart.md)|类|表示一个用于Lua脚本的Arcaea谱面对象。|
-|[``ScriptEvent``](Data/Arcade.Scripting.Apis/Aff/ScriptEvent.md)|类|表示一个用于Lua脚本的Arcaea脚本事件(Script Event)。该类为抽象类。|
-|[``ScriptEvent<TEvent, TRawEvent>``](Data/Arcade.Scripting.Apis/Aff/ScriptEvent`2.md)|类|表示一个用于Lua脚本的泛型Arcaea脚本事件(Script Event)。该类为抽象类。|
-|[``ScriptHold``](Data/Arcade.Scripting.Apis/Aff/ScriptHold.md)|类|表示一个用于Lua脚本的脚本音符Hold。|
-|[``ScriptNote<TNote, TRawNote>``](Data/Arcade.Scripting.Apis/Aff/ScriptNote`2.md)|类|表示一个用于Lua脚本的脚本音符事件(Script Note)。该类为抽象类。|
-|[``ScriptObject``](Data/Arcade.Scripting.Apis/Aff/ScriptObject.md)|类|表示用于Lua脚本的所有脚本对象的基类。|
-|[``ScriptSceneControl``](Data/Arcade.Scripting.Apis/Aff/ScriptSceneControl.md)|类|表示一个用于Lua脚本的SceneControl(场景控制)脚本事件。|
-|[``ScriptTap``](Data/Arcade.Scripting.Apis/Aff/ScriptTap.md)|类|表示一个用于Lua脚本的脚本音符Tap。|
-|[``ScriptTiming``](Data/Arcade.Scripting.Apis/Aff/ScriptTiming.md)|类|表示一个用于Lua脚本的Timing(时间点)脚本事件。|
-|[``ScriptTimingGroup``](Data/Arcade.Scripting.Apis/Aff/ScriptTimingGroup.md)|类|表示一个用于Lua脚本的TimingGroup(时间组)脚本事件。|
+每个用户脚本需要包含如下格式的内容：
+```lua
+ScriptInfo = {
+	id = "脚本ID，用于唯一标识脚本",
+	title = "脚本标题",
+	desc = "脚本描述",
+	author = "脚本作者",
+	version = "脚本版本",
+	compatibility = "兼容性检查代码",
+	arguments = { 脚本入口点方法ScriptMain的形参列表 }
+}
+
+function ScriptMain()
+	-- 脚本主体
+end
+```
+
+例如：
+```lua
+ScriptInfo = {
+	id = "moe.misakacastle.adechan.script.example",
+	title = "用户脚本示例",
+	desc = "这是一个用户脚本示例。它会在给定的时间点在给定轨道上添加一个Tap音符。",
+	author = "Misaka Castle",
+	version = "0.1.0",
+	compatibility = "Arcade-Chan>=3.3.0",
+	arguments = {
+		{
+			type = "number", -- 支持number/string/boolean
+			name = "时间点",
+			required = true
+		},
+		{
+			type = "number",
+			name = "轨道",
+			required = false,
+			default = 1
+		}
+	}
+}
+
+function ScriptMain(...)
+	local args = {...}
+	local timing = args[1]
+	local track = args[2] or 1
+
+	local chart = ChartInstance
+	local tap = ScriptTap.Create(timing, track)
+	chart:AddTap(tap)
+end
+```
+
+
+请选择一个命名空间查看详细手册：
+| 命名空间 | 说明 |
+|:--|:--|
+| [Arcade.Scripting.Apis.Aff](Data/Arcade.Scripting.Apis/Aff/README.md) | 包含所有可在Lua层使用的Arcade-Chan谱面数据的API类。这些类允许脚本开发者从Lua层读写已加载的Arcaea谱面(.aff)的各种信息。 |
