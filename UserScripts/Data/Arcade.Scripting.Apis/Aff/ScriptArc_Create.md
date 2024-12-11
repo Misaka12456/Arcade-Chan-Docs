@@ -1,5 +1,5 @@
 Arcade-Chan 用户脚本 / 开发手册 / Arcade.Scripting / ScriptArc / 方法 /
-# ScriptArc.Create(int, int, int, float, float, float, float, ArcLineType, ArcVoidType, string, int, DynValue) 方法
+# ScriptArc.Create(int, int, int, float, float, float, float, string, string, string, int) 方法
 参考
 
 ## 定义
@@ -12,7 +12,7 @@ Lua层级: &lt;Global&gt;<br />
 创建一个新的Arc(音弧)脚本音符，并初始化其绑定的对象事件。
 
 ```csharp
-public static ScriptArc Create(int timing, int endtiming, int color, float xStart, float xEnd, float yStart, float yEnd, ArcLineType lineType, ArcVoidType voidType, string effect = "none", int timingGroup = 0, DynValue arctaps = null);
+public static ScriptArc Create(int timing, int endtiming, int color, float xStart, float xEnd, float yStart, float yEnd, string lineType, string voidType, string effect = "none", int timingGroup = 0);
 ```
 
 ## 参数
@@ -30,16 +30,14 @@ public static ScriptArc Create(int timing, int endtiming, int color, float xStar
   Arc的起始Y坐标。
 - ``yEnd`` [float](https://docs.microsoft.com/zh-cn/dotnet/api/system.single)  
   Arc的结束Y坐标。
-- ``lineType`` ArcLineType  
-  Arc的音弧缓动(曲线)形态。可选值为【基础】S/B/Si/So和【高级】SiSi/SiSo/SoSi/SoSo八种缓动形态之一。
-- ``voidType`` ArcVoidType  
-  Arc音符的音轨状态类型。可选值为Solid/Void和VoidDesignant三种状态之一。
+- ``lineType`` [string](https://docs.microsoft.com/zh-cn/dotnet/api/system.string)  
+  Arc的音弧缓动(曲线)形态。可选值为【基础】s/b/si/so和【高级】sisi/siso/sosi/soso八种缓动形态之一。
+- ``voidType`` [string](https://docs.microsoft.com/zh-cn/dotnet/api/system.string)  
+  Arc音符的音轨状态类型。可选值为false/true和designant三种状态之一。
 - ``effect`` [string](https://docs.microsoft.com/zh-cn/dotnet/api/system.string)  
   其上的ArcTap音符的特殊音效(Sfx)参数。默认为"none"(即无特殊音效)。
 - ``timingGroup`` [int](https://docs.microsoft.com/zh-cn/dotnet/api/system.int32)  
   Arc所属的时间组(TimingGroup)的索引下标。默认为0(默认时间组)。
-- ``arctaps`` DynValue (Lua层为``Table``，列表形态，元素为[ScriptArcTap](ScriptArcTap.md))  
-  其上的所有ArcTap音符。可选参数。默认为空列表(即该Arc音符不存在任何附属ArcTap)。
 
 ## 返回
 [ScriptArc](ScriptArc.md)  
@@ -55,4 +53,4 @@ public static ScriptArc Create(int timing, int endtiming, int color, float xStar
 ## 适用于
 | 产品 | 版本 |
 |:----|:----|
-| **Arcade-Chan** | 3.3.0+ |
+| **Arcade-Chan** | 3.3.3+ |

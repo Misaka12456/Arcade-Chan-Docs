@@ -1,5 +1,5 @@
 Arcade-Chan 用户脚本 / 开发手册 / Arcade.Scripting / ScriptChart / 方法 /
-# ScriptChart.LoadActiveChart() 方法
+# ScriptChart.LoadActiveChart 方法
 参考
 
 ## 定义

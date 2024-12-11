@@ -62,4 +62,5 @@ end
 请选择一个命名空间查看详细手册：
 | 命名空间 | 说明 |
 |:--|:--|
+| [Arcade.Scripting.Apis](Data/Arcade.Scripting.Apis/README.md) | 提供所有用于Lua脚本的API类。 |
 | [Arcade.Scripting.Apis.Aff](Data/Arcade.Scripting.Apis/Aff/README.md) | 包含所有可在Lua层使用的Arcade-Chan谱面数据的API类。这些类允许脚本开发者从Lua层读写已加载的Arcaea谱面(.aff)的各种信息。 |

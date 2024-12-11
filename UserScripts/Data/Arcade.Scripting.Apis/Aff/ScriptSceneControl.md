@@ -25,7 +25,7 @@ public sealed class ScriptSceneControl : ScriptEvent<Arcade.Gameplay.Chart.ArcSc
 ## 属性
 | 属性名 | 类型 | 说明 |
 | -- | -- | -- |
-| ``SCType`` | Arcade.Gameplay.Chart.SceneControlType | 场景控制事件的类型。<br />可选``TrackHide/TrackShow/HideGroup/TrackDisplay/EnwidenCamera/EnwidenLanes``中任意一值。 |
+| ``SCType`` | string | 场景控制事件的类型。<br />可选``trackhide/trackshow/hidegroup/trackdisplay/enwidencamera/enwidenlanes``中任意一值。 |
 | ``FloatArg`` | float | 场景控制的浮点参数(参数1)。 |
 | ``IntArg`` | int | 场景控制的整数参数(参数2)。 |
 | ``TimingGroupIdx`` | int | 场景控制所属的时间组(TimingGroup)的索引下标。对应时间组必须已经存在于谱面中。 |
@@ -33,7 +33,7 @@ public sealed class ScriptSceneControl : ScriptEvent<Arcade.Gameplay.Chart.ArcSc
 ## 适用于
 | 产品 | 版本 |
 |:----|:----|
-| **Arcade-Chan** | 3.3.0+ |
+| **Arcade-Chan** | 3.3.3+ |
 
 ## 另请参阅
 - [ScriptChart](ScriptChart.md)

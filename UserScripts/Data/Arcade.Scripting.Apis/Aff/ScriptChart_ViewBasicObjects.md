@@ -1,5 +1,5 @@
 Arcade-Chan 用户脚本 / 开发手册 / Arcade.Scripting / ScriptChart / 方法 /
-# ScriptChart.ViewBasicObjects() 方法
+# ScriptChart.ViewBasicObjects(GettableScriptObjectType) 方法
 参考
 
 ## 定义

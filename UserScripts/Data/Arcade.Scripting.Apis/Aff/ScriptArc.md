@@ -32,15 +32,15 @@ public sealed class ScriptArc : ScriptNote<Arcade.Gameplay.Chart.ArcArc, Arcade.
 | ``XEnd`` | float | 该音符的结束X坐标。 |
 | ``YStart`` | float | 该音符的起始Y坐标。 |
 | ``YEnd`` | float | 该音符的结束Y坐标。 |
-| ``LineType`` | Arcade.Gameplay.ArcLineType | 该Arc音符的音弧缓动(曲线)形态。<br />可选 ``S/B/Si/So/SiSi/SiSo/SoSi/SoSo``中任意一值。 |
-| ``VoidType`` | Arcade.Aff.VoidType | 该Arc音符的音轨状态类型。<br />可选 ``Solid/Void/VoidDesignant``中任意一值。 |
+| ``LineType`` | string | 该Arc音符的音弧缓动(曲线)形态。<br />可选 ``s/b/si/so/siis/siso/sosi/soso``中任意一值。 |
+| ``VoidType`` | string | 该Arc音符的音轨状态类型。<br />可选 ``true/false/designant``中任意一值。 |
 | ``Effect`` | string | 其上的ArcTap音符的特殊音效(Sfx)参数。<br />若值不为none，其上所有的ArcTap都会表示为SfxArcTap的样式，并且单击判定成功时播放Effect所指的音效wav文件，而非正常的点击音效(hitsound)。<br />(文件名中"."用"_"代替, 例如"kick_wav"表示音效是项目文件夹下的kick.wav) |
-| ``ArcTaps`` | [ObservableCollection&lt;ScriptArcTap&gt;](https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.objectmodel.observablecollection-1?view=latest) | 该Arc音符上的所有ArcTap音符。<br />只要存在附属ArcTap，若 ``VoidType`` 的值为 ``VoidType.Solid``，该Arc音符也会被视为音轨(Trace/Vold)处理【即视 ``VoidType`` 为 ``VoidType.Void``】。 |
+| ``ArcTaps`` | [ObservableCollection&lt;ScriptArcTap&gt;](https://docs.microsoft.com/zh-cn/dotnet/api/system.collections.objectmodel.observablecollection-1?view=latest) | 该Arc音符上的所有ArcTap音符。<br />只要存在附属ArcTap，若 ``VoidType`` 的值为 ``false``，该Arc音符也会被视为音轨(Trace/Vold)处理【即视 ``VoidType`` 为 ``true``】。 |
 
 ## 方法
 | 方法名 | 说明 |
 | -- | -- |
-| [Create(int, int, int, float, float, float, float, ArcLineType, ArcVoidType, string, int, DynValue)](ScriptArc_Create.md) | 创建一个新的Arc(音弧)脚本音符，并初始化其绑定的对象事件。 |
+| [Create(int, int, int, float, float, float, float, string, string, string, int)](ScriptArc_Create.md) | 创建一个新的Arc(音弧)脚本音符，并初始化其绑定的对象事件。 |
 | [AddArcTap(int)](ScriptArc_AddArcTap.md) | 添加一个脚本音符ArcTap到该脚本音符Arc上。 |
 | [RemoveArcTap(int)](ScriptArc_RemoveArcTap.md#Overload_int) | 从该脚本音符Arc上移除一个指定判定时间的ArcTap。 |
 | [RemoveArcTap(ScriptArcTap)](ScriptArc_RemoveArcTap.md#Overload_ScriptArcTap) | 从该脚本音符Arc上移除一个ArcTap。 |
@@ -49,7 +49,7 @@ public sealed class ScriptArc : ScriptNote<Arcade.Gameplay.Chart.ArcArc, Arcade.
 ## 适用于
 | 产品 | 版本 |
 |:----|:----|
-| **Arcade-Chan** | 3.3.0+ |
+| **Arcade-Chan** | 3.3.3+ |
 
 ## 另请参阅
 - [ScriptArcTap](ScriptArcTap.md)
