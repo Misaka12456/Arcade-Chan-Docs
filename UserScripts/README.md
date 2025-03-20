@@ -31,7 +31,7 @@ ScriptInfo = {
 	desc = "这是一个用户脚本示例。它会在给定的时间点在给定轨道上添加一个Tap音符。",
 	author = "Misaka Castle",
 	version = "0.1.0",
-	compatibility = "Arcade-Chan>=3.3.0",
+	compatibility = "Arcade-Chan>=3.3.3",
 	arguments = {
 		{
 			type = "number", -- 支持number/string/boolean

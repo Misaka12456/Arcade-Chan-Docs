@@ -1,6 +1,6 @@
-# Arcade-Chan Developing Documents
+# Arcade-Chan Developer Documentation
 
-Documents of Open-Source Arcaea Chart Making & Previewing Tool Project 「Arcade-Chan」。
+Developer documentation of Arcaea Chart Making & Previewing Studio 「Arcade-Chan」。
 
 Contents:
 
